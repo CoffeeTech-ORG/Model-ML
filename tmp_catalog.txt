@@ -1,0 +1,390 @@
+PRODUCTS_CATALOG = {
+    'n_severe': [
+        {
+            'name': 'Nitrato de amonio (Nitrax/Yara)',
+            'composition': '33.5% N',
+            'dose': '40 g/planta',
+            'method': 'Aplicar al suelo alrededor de la línea de gotero',
+            'notes': 'Regar después de aplicar para favorecer la absorción y evitar quemaduras.',
+            'distributor': 'Yara Perú',
+        },
+        {
+            'name': 'Nitrato de potasio (Ultrasol foliar)',
+            'composition': '13-0-46',
+            'dose': '4 g/L de agua',
+            'method': 'Aplicación foliar',
+            'timing_frequency': 'Cada 10-14 días mientras dure la deficiencia severa',
+            'notes': 'Complementar con aporte de materia orgánica para mejorar disponibilidad.',
+            'distributor': 'SQM/Ultrasol',
+        },
+    ],
+    'n_moderate': [
+        {
+            'name': 'Urea granulada',
+            'composition': '46% N',
+            'dose': '25 g/planta',
+            'method': 'Incorporar superficialmente y cubrir con mulch',
+            'timing_frequency': 'Cada 30 días hasta normalizar niveles',
+            'distributor': 'Molinos & CIA',
+        },
+        {
+            'name': 'Nutricafé Crecimiento',
+            'composition': '19-9-19 + micro',
+            'dose': '50 g/planta',
+            'method': 'Aplicación al suelo',
+            'notes': 'Fraccionar la dosis en dos aplicaciones para mejorar eficiencia.',
+            'distributor': 'Molinos & CIA',
+        },
+    ],
+    'p_severe': [
+        {
+            'name': 'Superfosfato triple',
+            'composition': '46% P₂O₅',
+            'dose': '45 g/planta',
+            'method': 'Incorporar al suelo en media luna',
+            'notes': 'Aplicar sobre suelo húmedo y cubrir ligeramente.',
+            'distributor': 'Corporación Misti',
+        },
+        {
+            'name': 'Fosfito potásico (Fitopron)',
+            'composition': '0-28-26',
+            'dose': '3 ml/L de agua',
+            'method': 'Aplicación foliar',
+            'timing_frequency': 'Cada 15 días mientras se corrija la deficiencia',
+            'distributor': 'Farmex',
+        },
+    ],
+    'p_moderate': [
+        {
+            'name': 'Fosfato diamónico (DAP)',
+            'composition': '18-46-0',
+            'dose': '25 g/planta',
+            'method': 'Aplicación al suelo con ligera incorporación',
+            'notes': 'Evitar contacto directo con raíces expuestas.',
+            'distributor': 'Gavilon Perú',
+        },
+        {
+            'name': 'Guano de isla compostado',
+            'composition': '12% P₂O₅ promedio',
+            'dose': '80 g/planta',
+            'method': 'Aplicación en corona',
+            'notes': 'Aporta fósforo y materia orgánica para mejorar la microbiología.',
+            'distributor': 'Agrorural',
+        },
+    ],
+    'k_severe': [
+        {
+            'name': 'Sulfato de potasio granular',
+            'composition': '50% K₂O',
+            'dose': '45 g/planta',
+            'method': 'Aplicación al suelo; incorporar ligeramente',
+            'notes': 'Aportar humedad posterior para evitar salinizar la rizósfera.',
+            'distributor': 'SQM Perú',
+        },
+        {
+            'name': 'Nitrato de potasio foliar',
+            'composition': '13-0-46',
+            'dose': '5 g/L de agua',
+            'method': 'Nebulización foliar fina',
+            'timing_frequency': 'Cada 10 días hasta normalizar la lectura',
+            'distributor': 'Ultrasol',
+        },
+    ],
+    'k_moderate': [
+        {
+            'name': 'Sulfato de potasio',
+            'composition': '50% K₂O',
+            'dose': '30 g/planta',
+            'method': 'Aplicación al suelo',
+            'notes': 'Fraccionar la dosis en dos aplicaciones con 15 días de separación.',
+            'distributor': 'SQM Perú',
+        },
+        {
+            'name': 'Cafexport Producción',
+            'composition': '15-15-23 + Mg + S',
+            'dose': '70 g/planta',
+            'method': 'Aplicación al suelo alrededor de la planta',
+            'distributor': 'Yara Perú',
+        },
+    ],
+    'k_fructification_boost': [
+        {
+            'name': 'Sulfato de potasio (frutificación)',
+            'composition': '50% K₂O',
+            'dose': '35-40 g/planta',
+            'method': 'Aplicación al suelo con incorporación ligera',
+            'notes': 'Apoyar con riego para mejorar la absorción.',
+            'distributor': 'SQM Perú',
+        },
+        {
+            'name': 'Nitrato de potasio foliar',
+            'composition': '13-0-46',
+            'dose': '3 g/L de agua',
+            'method': 'Aplicación foliar (atomizador fino)',
+            'distributor': 'SQM/Ultrasol',
+        },
+    ],
+    'ca_deficiency': [
+        {
+            'name': 'Nitrato de calcio (YaraLiva)',
+            'composition': '15.5% N / 26.5% CaO',
+            'dose': '30 g/planta',
+            'method': 'Aplicación al suelo',
+            'notes': 'Fortalece paredes celulares y mejora el llenado del grano.',
+            'distributor': 'Yara Perú',
+        },
+    ],
+    'roya_ojo_gallo_control': [
+        {
+            'name': 'Cyproconazole (Alto®)',
+            'dose': '1 ml/L de agua',
+            'method': 'Aplicación foliar dirigida',
+            'timing_frequency': 'Repetir cada 21 días según monitoreo',
+            'notes': 'Rotar modos de acción para evitar resistencia.',
+            'distributor': 'Syngenta',
+        },
+        {
+            'name': 'Azoxystrobin (Amistar®)',
+            'dose': '0.5 g/L de agua',
+            'method': 'Nebulización foliar homogénea',
+            'distributor': 'Syngenta',
+        },
+    ],
+    'botrytis_control': [
+        {
+            'name': 'Azoxystrobin + Difenoconazole',
+            'dose': '0.6 g/L de agua',
+            'method': 'Aplicación foliar dirigida a floración',
+            'notes': 'Realizar en horas frescas para mejor absorción.',
+        },
+        {
+            'name': 'Caldo bordelés',
+            'composition': 'Sulfato de cobre + cal',
+            'dose': 'Seguir etiqueta comercial',
+            'method': 'Aplicación foliar',
+            'notes': 'Mantener intervalo de seguridad previo a cosecha.',
+        },
+    ],
+    'broca_control': [
+        {
+            'name': 'Beauveria bassiana (Beauvesol)',
+            'dose': '200 g/200 L de agua',
+            'method': 'Aplicación foliar y al fruto',
+            'timing_frequency': 'Repetir cada 15 días en picos poblacionales',
+            'distributor': 'Solagro',
+        },
+        {
+            'name': 'Trampas Brocap® con atrayente',
+            'dose': '20 trampas/ha',
+            'method': 'Distribuir uniformemente en el lote',
+            'notes': 'Relevar semanalmente capturas para ajustar densidad.',
+            'distributor': 'Procafé',
+        },
+    ],
+    'general_pest_preventive': [
+        {
+            'name': 'Extracto botánico (Bioplag)',
+            'dose': '5 ml/L de agua',
+            'method': 'Pulverización foliar',
+            'notes': 'Acción repelente; reforzar cada 10 días en viveros y plántulas.',
+        },
+    ],
+    'fungal_preventive_excess_humidity': [
+        {
+            'name': 'Hidróxido de cobre (Kocide®)',
+            'dose': '3 g/L de agua',
+            'method': 'Aplicación foliar preventiva',
+            'notes': 'Aplicar después de lluvias intensas para proteger tejidos jóvenes.',
+        },
+        {
+            'name': 'Fungicida biológico a base de Bacillus subtilis',
+            'dose': 'Seguir etiqueta comercial',
+            'method': 'Pulverización foliar',
+            'notes': 'Compatibilizar con planes de control químico para reducir residuos.',
+        },
+    ],
+    'plantula_base': [
+        {
+            'name': 'Abono orgánico enriquecido (Mallki®)',
+            'dose': '50 g/planta',
+            'method': 'Aplicación al sustrato',
+            'notes': 'Mejora estructura y retención de humedad en viveros.',
+        },
+        {
+            'name': 'Guano de isla compostado',
+            'dose': '80 g/planta',
+            'method': 'Mezclar con el sustrato en trasplante',
+            'notes': 'Aporta microelementos clave para raíces jóvenes.',
+        },
+    ],
+    'vegetativo_integral': [
+        {
+            'name': 'Fertilizante granular 20-10-10',
+            'dose': '60 g/planta cada 3 meses',
+            'method': 'Aplicación al suelo dividida en dos medias lunas',
+            'notes': 'Complementar con cobertura orgánica para reducir lixiviación.',
+        },
+    ],
+    'floracion_foliar': [
+        {
+            'name': 'Fertilizante foliar alto en fósforo (12-48-8)',
+            'dose': '2.5 ml/L de agua',
+            'method': 'Pulverización fina al inicio de floración',
+            'notes': 'Añadir boro si el análisis foliar lo requiere.',
+        },
+    ],
+    'floracion_base_k': [
+        {
+            'name': 'Sulfato de potasio',
+            'dose': '35 g/planta',
+            'method': 'Aplicación al suelo alrededor de la planta',
+            'notes': 'Favorece cuajado y desarrollo de frutos.',
+        },
+    ],
+    'fructificacion_base': [
+        {
+            'name': 'Fertilizante 15-15-23',
+            'dose': '90 g/planta fraccionado',
+            'method': 'Aplicar en dos medias lunas opuestas',
+            'notes': 'Acompañar con control de malezas para reducir competencia.',
+        },
+    ],
+    'maduracion_integral': [
+        {
+            'name': 'Fertilizante 5-5-30 + Ca/Mg',
+            'dose': '60 g/planta',
+            'method': 'Aplicación al suelo',
+            'notes': 'Favorece llenado final y firmeza del grano.',
+        },
+    ],
+    'base_fertilizer_plantula': [
+        {'name': 'Plan base plántula', 'notes': 'Mantener aporte orgánico ligero y monitorear riego.'},
+    ],
+    'base_fertilizer_vegetativo': [
+        {'name': 'Plan base vegetativo', 'notes': 'Aporte balanceado NPK y manejo de sombra al 40-50%.'},
+    ],
+    'base_fertilizer_floracion': [
+        {'name': 'Plan base floración', 'notes': 'Mantener aporte de fósforo y potasio, vigilar humedad.'},
+    ],
+    'base_fertilizer_fructificacion': [
+        {'name': 'Plan base fructificación', 'notes': 'Potenciar potasio y monitorear carga de frutos.'},
+    ],
+    'base_fertilizer_maduracion': [
+        {'name': 'Plan base maduración', 'notes': 'Refuerzo de potasio y calcio para uniformidad en cosecha.'},
+    ],
+    'base_fertilizer_cosecha': [
+        {'name': 'Plan base cosecha', 'notes': 'Priorizar sanidad del fruto y suspender fertilizaciones químicas 30 días antes.'},
+    ],
+    'base_fertilizer_default': [
+        {'name': 'Plan base general', 'notes': 'Mantener programa NPK equilibrado según análisis de suelo.'},
+    ],
+    'altitude_guidance_baja': [
+        {'name': 'Manejo plano bajo', 'notes': 'Incrementar sombra, riego y control de plagas térmicas.'},
+    ],
+    'altitude_guidance_media': [
+        {'name': 'Manejo plano medio', 'notes': 'Conservar prácticas integrales y monitoreo semanal.'},
+    ],
+    'altitude_guidance_alta': [
+        {'name': 'Manejo plano alto', 'notes': 'Reforzar protección contra heladas ligeras y monitorear humedad de suelo.'},
+    ],
+    'altitude_guidance_muy_alta': [
+        {'name': 'Manejo plano muy alto', 'notes': 'Implementar barreras contra heladas y ajustar carga productiva.'},
+    ],
+    'error_model_not_loaded': [
+        {'name': 'Alerta de sistema', 'notes': 'Modelo ML no disponible. Verificar servicios antes de ejecutar labores.'},
+    ],
+    'error_prediction_failed': [
+        {'name': 'Alerta de predicción', 'notes': 'Se produjo un fallo al generar la recomendación. Revisar registros y volver a intentar.'},
+    ],
+    'error_missing_data': [
+        {'name': 'Error de datos', 'notes': 'Faltan datos esenciales del sensor. Validar dispositivo y repetir medición.'},
+    ],
+    'error_formatting': [
+        {'name': 'Error de formato', 'notes': 'No se pudo formatear la recomendación. Revisar logs del servicio.'},
+    ],
+    'unknown_condition': [
+        {'name': 'Condición no reconocida', 'notes': 'Validar con un agrónomo para definir plan de acción.'},
+    ],
+    'optimal': [
+        {'name': 'Condiciones óptimas', 'notes': 'Mantener monitoreo y buenas prácticas culturales.'},
+    ],
+}
+
+ALTITUDE_THRESHOLDS = {
+    'bajo': {'min': 800, 'max': 1199, 'label': 'Plano bajo', 'message': 'Zona baja: ciclo rápido, más plagas y granos menos densos; reforzar sombra y riego.', 'catalog_key': 'altitude_guidance_baja'},
+    'medio': {'min': 1200, 'max': 1600, 'label': 'Plano medio', 'message': 'Zona media: óptimo rendimiento y calidad; mantener prácticas integrales y monitoreo constante.', 'catalog_key': 'altitude_guidance_media'},
+    'alto': {'min': 1601, 'max': 1900, 'label': 'Plano alto', 'message': 'Zona alta: maduración lenta, grano denso y calidad superior; vigilar humedad y heladas ligeras.', 'catalog_key': 'altitude_guidance_alta'},
+    'muy_alto': {'min': 1901, 'label': 'Plano muy alto', 'message': 'Zona muy alta: producción limitada, riesgo de heladas y tazas exóticas; proteger brotes y ajustar carga.', 'catalog_key': 'altitude_guidance_muy_alta'}
+}
+
+STAGE_ALTITUDE_NOTES = {
+    'plantula': {
+        'bajo': 'Sombra â‰¥ 60%, riegos frecuentes y control intensivo de broca y roya.',
+        'medio': 'Sombra 40-50%, riego moderado y fertilización inicial estándar.',
+        'alto': 'Proteger contra frío, sombra ligera 30-40% y asegurar buen drenaje.',
+        'muy_alto': 'Viveros protegidos contra heladas y fertilización de liberación lenta.'
+    },
+    'vegetativo': {
+        'bajo': 'Podas tempranas para controlar vigor y aporte alto de nitrógeno.',
+        'medio': 'Podas formativas regulares y fertilización equilibrada NPK.',
+        'alto': 'Aumentar materia orgánica y cobertura; moderar nitrógeno.',
+        'muy_alto': 'Reducir nitrógeno, priorizar fósforo/potasio y evitar estrés por frío.'
+    },
+    'floracion': {
+        'bajo': 'Gestionar sombra para evitar estrés térmico y reforzar control preventivo de roya.',
+        'medio': 'Mantener sombra estable y aplicar micronutrientes foliares.',
+        'alto': 'Minimizar exceso de humedad y asegurar buena polinización.',
+        'muy_alto': 'Proteger de heladas y neblina; micronutrientes vía foliar.'
+    },
+    'fructificacion': {
+        'bajo': 'Riego suplementario para uniformidad y control intensivo de broca.',
+        'medio': 'Ajustar fertilización potásica y control moderado de plagas.',
+        'alto': 'Combinar potasio con materia orgánica y asegurar drenaje.',
+        'muy_alto': 'Priorizar fertilización orgánica, monitorear heladas y reducir carga si es necesario.'
+    },
+    'maduracion': {
+        'bajo': 'Cosecha escalonada y refuerzo en control de plagas.',
+        'medio': 'Cosecha más uniforme y monitoreo de roya.',
+        'alto': 'Maduración lenta, realizar cosecha selectiva para calidad.',
+        'muy_alto': 'Recolección cuidadosa y seguimiento del clima para evitar pérdidas.'
+    },
+    'cosecha': {
+        'bajo': 'Procesamiento rápido para evitar fermentaciones por calor y transporte en sombra.',
+        'medio': 'Procesamiento estándar con secado controlado.',
+        'alto': 'Fermentaciones controladas y secado lento para especialidad.',
+        'muy_alto': 'Procesamiento ultra selectivo y secado protegido de bajas temperaturas.'
+    }
+}
+
+
+
+NUTRIENT_NAME_ES = {'N': 'nitrógeno', 'P': 'fósforo', 'K': 'potasio'}
+SEVERITY_NAME_ES = {'severe': 'severa', 'moderate': 'moderada'}
+FUNGAL_AGENT_ES = {
+    'botrytis': 'Botrytis',
+    'ojo_gallo': 'Ojo de gallo',
+    'roya': 'Roya'
+}
+PEST_AGENT_ES = {'broca': 'Broca'}
+
+# --- Umbrales y Niveles Críticos ---
+STAGE_OPTIMAL_PARAMS = { # Rangos óptimos por etapa
+    'plantula': {'N': (30, 40), 'P': (20, 30), 'K': (25, 35), 'soil_hum': (70, 80), 'temp': (18, 25)},
+    'vegetativo': {'N': (40, 60), 'P': (25, 35), 'K': (35, 50), 'soil_hum': (65, 75), 'temp': (18, 25)},
+    'floracion': {'N': (40, 50), 'P': (35, 45), 'K': (50, 60), 'soil_hum': (65, 70), 'temp': (18, 25)},
+    'fructificacion': {'N': (40, 50), 'P': (30, 40), 'K': (60, 80), 'soil_hum': (70, 75), 'temp': (17, 23)},
+    'maduracion': {'N': (30, 40), 'P': (25, 35), 'K': (70, 90), 'soil_hum': (60, 70), 'temp': (17, 23)},
+    'cosecha': {'N': (30, 40), 'P': (20, 30), 'K': (50, 70), 'soil_hum': (60, 70), 'temp': (18, 22)},
+    'default': {'N': (35, 55), 'P': (20, 40), 'K': (40, 70), 'soil_hum': (60, 75), 'temp': (17, 26)},
+}
+NPK_CRITICAL_LEVELS = { # Niveles NPK generales
+    'N': {'severe_low': 25, 'moderate_low': 40, 'optimal_low': 40, 'optimal_high': 60, 'excess': 80},
+    'P': {'severe_low': 15, 'moderate_low': 25, 'optimal_low': 25, 'optimal_high': 45, 'excess': 60},
+    'K': {'severe_low': 30, 'moderate_low': 50, 'optimal_low': 50, 'optimal_high': 80, 'excess': 100},
+}
+HUMIDITY_ALERT_THRESHOLDS = { # Umbrales Humedad Suelo por etapa 
+    'plantula': {'deficit': 60, 'excess': 85}, 'vegetativo': {'deficit': 55, 'excess': 85},
+    'floracion': {'deficit': 55, 'excess': 80}, 'fructificacion': {'deficit': 60, 'excess': 85},
+    'maduracion': {'deficit': 50, 'excess': 80}, 'cosecha': {'deficit': 50, 'excess': 80},
+    'default': {'deficit': 55, 'excess': 85},
+}

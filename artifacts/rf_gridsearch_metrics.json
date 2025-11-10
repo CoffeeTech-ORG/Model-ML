@@ -1,0 +1,62 @@
+{
+  "best_params": {
+    "clf": "RandomForestClassifier",
+    "clf__class_weight": "balanced",
+    "clf__criterion": "gini",
+    "clf__max_depth": null,
+    "clf__max_features": null,
+    "clf__min_samples_leaf": 2,
+    "clf__min_samples_split": 2,
+    "clf__n_estimators": 900,
+    "sampler": "SMOTE"
+  },
+  "cv_macro_f1": 0.9324336397490307,
+  "holdout": {
+    "accuracy": 0.9979969954932398,
+    "f1_weighted": 0.9979725419830473,
+    "f1_macro": 0.9932380224341116,
+    "precision_weighted": 0.9980228194368553,
+    "recall_weighted": 0.9979969954932398
+  },
+  "holdout_base": {
+    "accuracy": 0.9964947421131698,
+    "f1_weighted": 0.9964483510809604,
+    "f1_macro": 0.973609716521715,
+    "precision_weighted": 0.9966631765830564,
+    "recall_weighted": 0.9964947421131698
+  },
+  "thresholds": {
+    "pest_risk_broca_fructificacion": 0.15000000000000002,
+    "fungal_risk_botrytis_floracion": 0.1,
+    "water_deficit_maduracion": 0.15000000000000002
+  },
+  "timestamp": "2025-10-04T07:31:39.955512+00:00",
+  "cv_splits": 4,
+  "n_train_rows": 7984,
+  "dropped_labels": {
+    "cold_stress_high_altitude": 1
+  },
+  "train_class_distribution": {
+    "fungal_risk_ojo_gallo_maduracion": 52,
+    "p_deficiency_severe": 2325,
+    "n_deficiency_severe": 2589,
+    "water_deficit_floracion": 330,
+    "water_deficit_vegetativo": 416,
+    "n_deficiency_moderate": 1310,
+    "fungal_risk_botrytis_floracion": 77,
+    "water_deficit_maduracion": 143,
+    "p_deficiency_moderate": 98,
+    "water_deficit_fructificacion": 268,
+    "fungal_risk_roya_vegetativo": 116,
+    "water_deficit_plantula": 157,
+    "excess_humidity_soil": 48,
+    "water_deficit_cosecha": 41,
+    "pest_risk_broca_fructificacion": 10,
+    "k_excess": 4
+  },
+  "target_min_support": 220,
+  "samplers_tried": [
+    "RandomOverSampler",
+    "SMOTE"
+  ]
+}
