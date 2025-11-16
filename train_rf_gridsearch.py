@@ -1,4 +1,5 @@
-﻿"""CLI script that trains/tunes the production RandomForest pipeline for CoffeeTech."""`r`nimport argparse
+﻿"""CLI script that trains/tunes the production RandomForest pipeline for CoffeeTech."""
+import argparse
 import json
 from collections import Counter
 from datetime import UTC, datetime

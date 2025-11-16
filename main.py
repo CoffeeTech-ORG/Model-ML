@@ -1,5 +1,6 @@
 ﻿"""FastAPI service combining Random Forest outputs with agronomic expert rules."""
 import asyncio
+import json
 import httpx
 import pandas as pd
 from fastapi import FastAPI, HTTPException
@@ -72,6 +73,7 @@ FARMS_URL = f"{API_BASE_URL}/farms"
 
 MODEL_ARTIFACT_PATH = os.getenv("COFFEETECH_MODEL_PATH", "artifacts/coffee_rf_pipeline.joblib")
 CACHE_DURATION_SECONDS = 300; device_stage_map_cache = {"data": None, "timestamp": 0}
+last_sensor_signature_cache: Dict[str, Optional[str]] = {}
 
 # --- ML Functions ---
 
@@ -1108,6 +1110,19 @@ def _safe_float_value(value: Optional[Any]) -> Optional[float]:
         return None
     return result
 
+
+def _compute_sensor_signature(sensor_record: Dict[str, Any], iso_timestamp: Optional[str]) -> str:
+    """Create a signature that lets us detect whether a device record is new."""
+    if iso_timestamp:
+        return f"ts:{iso_timestamp}"
+    record_id = sensor_record.get("id")
+    if record_id is not None:
+        return f"id:{record_id}"
+    try:
+        return json.dumps(sensor_record, sort_keys=True, default=str)
+    except Exception:
+        return str(sensor_record)
+
 def _classify_condition_meta(condition_label: str, stage: str) -> Tuple[str, int]:
     """Assign human-friendly metadata (recommendation type + urgency) to any
     condition label, consolidating logic so format_detailed_recommendation stays lean."""
@@ -1972,16 +1987,25 @@ async def trigger_recommendation_generation_and_send(refresh_map: bool = False):
         }
 
         ts_str = sensor_record.get("createdAt") or sensor_record.get("timestamp")
+        iso_timestamp = None
         if ts_str:
             try:
-                prepared_data["base_time_iso"] = pd.to_datetime(ts_str, errors='raise', utc=True).isoformat()
+                iso_timestamp = pd.to_datetime(ts_str, errors='raise', utc=True).isoformat()
+                prepared_data["base_time_iso"] = iso_timestamp
             except Exception:
                 logger.warning(f"Could not parse timestamp {ts_str} for {device_hub_id}")
+        record_signature = _compute_sensor_signature(sensor_record, iso_timestamp)
+        last_signature = last_sensor_signature_cache.get(device_hub_id)
+        if record_signature and last_signature == record_signature:
+            logger.info(f"Skipping device {device_hub_id}: no new sensor data since last run.")
+            continue
 
         predicted_condition = predict_condition(prepared_data, model_data_global)
         try:
             detailed_recommendation = format_detailed_recommendation(predicted_condition, prepared_data)
             recommendations_to_send.append(detailed_recommendation)
+            if record_signature:
+                last_sensor_signature_cache[device_hub_id] = record_signature
         except Exception as exc:
             logger.error(f"Error formatting rec for {device_hub_id} (Cond: {predicted_condition}): {exc}", exc_info=True)
             base_time_dt = None
@@ -2004,13 +2028,15 @@ async def trigger_recommendation_generation_and_send(refresh_map: bool = False):
                     based_on_data_at=base_time_dt,
                 )
             )
+            if record_signature:
+                last_sensor_signature_cache[device_hub_id] = record_signature
 
     sent_count = 0
     error_count = 0
     results_summary = []
 
     if not recommendations_to_send:
-        return {"message": "No recommendations generated."}
+        return {"message": "No new sensor data found."}
     if not JWT_TOKEN or len(JWT_TOKEN) < 50:
         return {
             "message": "Recomendaciones generadas pero NO ENVIADAS (JWT inválido).",
