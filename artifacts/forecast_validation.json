@@ -1,0 +1,205 @@
+{
+  "validated_at": "2026-08-10T13:21:00.378881+00:00",
+  "servibles": [
+    6
+  ],
+  "criterio": "Un horizonte se sirve si TODOS sus objetivos superan a la persistencia en TODOS los pliegues de la validación dejando una campaña fuera (LOCO). No la media: el MÍNIMO. Un horizonte que falla en una estación va a fallar en campo cuando llegue esa estación, y promediarlo lo escondería. Los bloques temporales se siguen publicando como diagnóstico —dicen cuánto del número depende de dónde cayó el corte— pero no deciden: prueban sobre régimenes que el modelo ya vio.",
+  "campanas": [
+    "feb",
+    "mayo",
+    "nov"
+  ],
+  "objetivo": "cambio",
+  "nota": "LOCO —dejar una campaña fuera— es la validación que decide: cada pliegue entrena con las demás campañas enteras y prueba con la que queda fuera, así que responde «¿sirve en una estación que no ha visto?». Los bloques temporales se publican como diagnóstico: dicen cuánto del número depende de dónde cayó el corte, pero prueban sobre régimenes ya vistos.",
+  "limite": "Los pliegues de campañas cortas son ruidosos y NO valen lo mismo: nov son 48 h y feb 100 h, frente a los 24,5 días de mayo. Se publican por separado en vez de promediarlos. Y sigue siendo UNA finca: ninguna cantidad de campañas del mismo hub arregla eso.",
+  "modelos": [
+    {
+      "target": "celcius_grade_temperature",
+      "etiqueta": "temperatura de aire (°C)",
+      "horizon_h": 2,
+      "loco": {
+        "horizon_h": 2.0,
+        "pliegues": {
+          "nov": {
+            "n_train": 20229,
+            "n_test": 1366,
+            "rmse_persist": 2.482775298787379,
+            "rmse_rf": 2.6439731006250633,
+            "skill_rmse": -0.06492645625901616,
+            "pred_min": 12.090363638272247,
+            "pred_max": 28.156540400544493
+          },
+          "feb": {
+            "n_train": 18669,
+            "n_test": 2926,
+            "rmse_persist": 2.2424519546660777,
+            "rmse_rf": 2.067925704573398,
+            "skill_rmse": 0.0778283118751002,
+            "pred_min": 14.27655284886054,
+            "pred_max": 27.773180648035208
+          },
+          "mayo": {
+            "n_train": 4292,
+            "n_test": 17303,
+            "rmse_persist": 1.8004507117307447,
+            "rmse_rf": 1.699932624092942,
+            "skill_rmse": 0.05582940259507363,
+            "pred_min": 7.806109845113504,
+            "pred_max": 26.13522440643011
+          }
+        },
+        "skill_min": -0.06492645625901616,
+        "skill_medio": 0.022910419403719223
+      },
+      "bloques": {
+        "horizon_h": 2.0,
+        "n_pliegues": 25,
+        "skill_rmse": 0.29894846947237297,
+        "skill_sd": 0.18569759734639754,
+        "skill_min": 0.04887236900545899,
+        "skill_max": 0.5214046643522938
+      }
+    },
+    {
+      "target": "celcius_grade_temperature",
+      "etiqueta": "temperatura de aire (°C)",
+      "horizon_h": 6,
+      "loco": {
+        "horizon_h": 6.0,
+        "pliegues": {
+          "nov": {
+            "n_train": 19989,
+            "n_test": 1246,
+            "rmse_persist": 5.325206545585527,
+            "rmse_rf": 2.7417025864645828,
+            "skill_rmse": 0.48514624494004066,
+            "pred_min": 11.366838780315184,
+            "pred_max": 25.976572344591073
+          },
+          "feb": {
+            "n_train": 18429,
+            "n_test": 2806,
+            "rmse_persist": 3.8419660173051855,
+            "rmse_rf": 3.3232904736487536,
+            "skill_rmse": 0.1350026370145353,
+            "pred_min": 12.012775986556655,
+            "pred_max": 26.34063791363193
+          },
+          "mayo": {
+            "n_train": 4052,
+            "n_test": 17183,
+            "rmse_persist": 4.613304502838616,
+            "rmse_rf": 3.0536322757960908,
+            "skill_rmse": 0.33808135276629636,
+            "pred_min": 6.85932072674889,
+            "pred_max": 27.093478842144204
+          }
+        },
+        "skill_min": 0.1350026370145353,
+        "skill_medio": 0.3194100782402908
+      },
+      "bloques": {
+        "horizon_h": 6.0,
+        "n_pliegues": 25,
+        "skill_rmse": 0.4945205916289425,
+        "skill_sd": 0.02705658935727005,
+        "skill_min": 0.4582878789356175,
+        "skill_max": 0.5394594948144984
+      }
+    },
+    {
+      "target": "air_humidity_percent",
+      "etiqueta": "humedad de aire (%)",
+      "horizon_h": 2,
+      "loco": {
+        "horizon_h": 2.0,
+        "pliegues": {
+          "nov": {
+            "n_train": 20229,
+            "n_test": 1366,
+            "rmse_persist": 6.756628906593583,
+            "rmse_rf": 8.160385107587645,
+            "skill_rmse": -0.20775984894244814,
+            "pred_min": 67.8716741385036,
+            "pred_max": 96.21342293540187
+          },
+          "feb": {
+            "n_train": 18669,
+            "n_test": 2926,
+            "rmse_persist": 5.887264764739323,
+            "rmse_rf": 5.722977640479876,
+            "skill_rmse": 0.027905509744255763,
+            "pred_min": 67.30171658238203,
+            "pred_max": 96.977578341736
+          },
+          "mayo": {
+            "n_train": 4292,
+            "n_test": 17303,
+            "rmse_persist": 3.9877291283908725,
+            "rmse_rf": 4.903814886840642,
+            "skill_rmse": -0.22972617471122692,
+            "pred_min": 70.78582782833124,
+            "pred_max": 100.0
+          }
+        },
+        "skill_min": -0.22972617471122692,
+        "skill_medio": -0.13652683796980644
+      },
+      "bloques": {
+        "horizon_h": 2.0,
+        "n_pliegues": 25,
+        "skill_rmse": 0.18737679825469503,
+        "skill_sd": 0.3126481941257087,
+        "skill_min": -0.3736170141025734,
+        "skill_max": 0.4626501815555276
+      }
+    },
+    {
+      "target": "air_humidity_percent",
+      "etiqueta": "humedad de aire (%)",
+      "horizon_h": 6,
+      "loco": {
+        "horizon_h": 6.0,
+        "pliegues": {
+          "nov": {
+            "n_train": 19989,
+            "n_test": 1246,
+            "rmse_persist": 9.017740689147622,
+            "rmse_rf": 7.2430955171648295,
+            "skill_rmse": 0.19679487724885292,
+            "pred_min": 70.72527290691714,
+            "pred_max": 99.96032731890011
+          },
+          "feb": {
+            "n_train": 18429,
+            "n_test": 2806,
+            "rmse_persist": 8.377088747580304,
+            "rmse_rf": 6.316629811638948,
+            "skill_rmse": 0.245963603589196,
+            "pred_min": 68.68133276340888,
+            "pred_max": 97.96621934511899
+          },
+          "mayo": {
+            "n_train": 4052,
+            "n_test": 17183,
+            "rmse_persist": 9.478269508000457,
+            "rmse_rf": 7.606714067440314,
+            "skill_rmse": 0.197457504134103,
+            "pred_min": 62.335453451039534,
+            "pred_max": 93.30814980637325
+          }
+        },
+        "skill_min": 0.19679487724885292,
+        "skill_medio": 0.21340532832405065
+      },
+      "bloques": {
+        "horizon_h": 6.0,
+        "n_pliegues": 25,
+        "skill_rmse": 0.31431207815745277,
+        "skill_sd": 0.24096828450128013,
+        "skill_min": -0.16633494465976462,
+        "skill_max": 0.5072162085598851
+      }
+    }
+  ]
+}
