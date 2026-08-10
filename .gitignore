@@ -1,0 +1,31 @@
+# Secretos y configuración local — NUNCA versionar
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Artefactos de modelo pesados (regenerar con `python coffeetech_forecast.py train`)
+artifacts/*.joblib
+
+# Estado runtime del servicio (cadencia del recordatorio de laboratorio)
+coffeetech_state.json
+coffeetech_state.json.tmp
+
+# Dataset etiquetado del RF de clasificación retirado (sólo referencia local)
+data/san_ignacio_training_v4.csv
+
+# SO / editor / herramientas locales
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

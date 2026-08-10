@@ -1,0 +1,22 @@
+# Dependencias de ejecución del servicio FastAPI (main.py).
+# El motor de reglas (coffeetech_rules_v5 / coffeetech_doses /
+# coffeetech_recommendations) usa solo la biblioteca estándar.
+fastapi
+uvicorn[standard]
+httpx
+requests
+pandas
+numpy
+python-dotenv
+
+# Scheduler interno opcional (COFFEETECH_SCHEDULER_ENABLED=1). Si no está instalado y el
+# scheduler está apagado, el servicio funciona igual (disparo por endpoint/cron externo).
+apscheduler
+
+# Pronóstico de microclima (coffeetech_forecast). Si no están instaladas, el servicio
+# arranca igual y emite solo las recomendaciones inmediatas.
+scikit-learn
+joblib
+
+# Desarrollo / pruebas
+pytest
